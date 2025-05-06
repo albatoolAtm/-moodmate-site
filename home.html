@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoodMate - Home</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="home.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="home.js"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-800 via-purple-800 to-blue-900 text-white font-sans">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="logo.png" alt="MoodMate Logo" class="logo" />
+      <h1 class="title">MoodMate</h1>
+    </div>
+    <nav class="nav-links">
+      <a href="home.html">🏠 Home</a>
+      <a href="profile.html">👤 Profile</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>🎭 Discover Movies That Match Your Mood</h2>
+    <p>Personalized recommendations just for you 🎥</p>
+    <button onclick="goToChatbot()" class="recommend-btn">Get movie recommendations 🎬</button>
+  </section>
+
+  <!-- Auto-Scrolling Slider -->
+  <section class="slider-section">
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <img src="movie6.jpg" />
+        <img src="movie7.jpg" />
+        <img src="movie8.png" />
+        <img src="movie4.jpg" />
+        <img src="movie5.jpg" />
+      </div>
+    </div>
+    <button id="prevBtn" class="nav-btn left">❮</button>
+    <button id="nextBtn" class="nav-btn right">❯</button>
+  </section>
+
+  <!-- Search Bar & Filter -->
+  <div class="search-section">
+    <input type="text" id="searchInput" onkeyup="filterMovies()" placeholder="🔍 Search for movies..." />
+    <select id="genreFilter" onchange="filterMovies()">
+      <option value="">🎭 All Moods</option>
+      <option value="thriller">Thriller</option>
+      <option value="romance">Romance</option>
+      <option value="comedy">Comedy</option>
+      <option value="drama">Drama</option>
+    </select>
+  </div>
+
+  <!-- Trending Movies -->
+  <section class="trending">
+    <h3>🔥 Trending Movies</h3>
+    <div class="movie-grid">
+      <div class="movie-card" 
+           data-title="Inception" 
+           data-genre="thriller" 
+           data-rating="9.0" 
+           data-actors="Leonardo DiCaprio, Joseph Gordon-Levitt" 
+           data-description="A thief who steals corporate secrets through dream-sharing technology is tasked with planting an idea." 
+           data-trailer="https://www.youtube.com/watch?v=YoHD9XEInc0">
+        <img src="movie1.jpg" alt="Inception" />
+        <h4>Inception</h4>
+        <p>⭐ 9.0</p>
+      </div>
+
+      <div class="movie-card" 
+           data-title="Interstellar" 
+           data-genre="drama" 
+           data-rating="8.6" 
+           data-actors="Matthew McConaughey, Anne Hathaway" 
+           data-description="A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival." 
+           data-trailer="https://www.youtube.com/watch?v=zSWdZVtXT7E">
+        <img src="movie3.jpg" alt="Interstellar" />
+        <h4>Interstellar</h4>
+        <p>⭐ 8.6</p>
+      </div>
+
+      <div class="movie-card" 
+           data-title="The Dark Knight" 
+           data-genre="thriller" 
+           data-rating="9.1" 
+           data-actors="Christian Bale, Heath Ledger" 
+           data-description="Batman faces the Joker, a criminal mastermind who wants to plunge Gotham City into anarchy." 
+           data-trailer="https://www.youtube.com/watch?v=EXeTwQWrcwY">
+        <img src="movie2.jpg" alt="The Dark Knight" />
+        <h4>The Dark Knight</h4>
+        <p>⭐ 9.1</p>
+      </div>
+
+      <div class="movie-card" 
+           data-title="Joker" 
+           data-genre="drama" 
+           data-rating="8.5" 
+           data-actors="Joaquin Phoenix, Robert De Niro" 
+           data-description="In Gotham, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society." 
+           data-trailer="https://www.youtube.com/watch?v=zAGVQLHvwOY">
+        <img src="movie4.jpg" alt="Joker" />
+        <h4>Joker</h4>
+        <p>⭐ 8.5</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="movieModal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    <div class="modal-content bg-white text-black p-6 rounded-lg w-11/12 md:w-2/3 lg:w-1/2">
+      <button class="close-btn text-xl font-bold float-right" onclick="closeModal()">&times;</button>
+      <h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
+      <img id="modalImage" src="" alt="" class="w-full h-64 object-cover mb-3 rounded" />
+      <p id="modalDescription" class="mb-2"></p>
+      <p id="modalActors" class="italic mb-1"></p>
+      <p id="modalRating" class="font-semibold mb-2"></p>
+      <a id="modalTrailer" href="#" target="_blank" class="text-blue-600 underline mb-4 inline-block">▶ Watch Trailer</a>
+      <h3 class="text-lg font-bold mt-4">Comments</h3>
+      <ul id="commentsList" class="list-disc list-inside mb-2"></ul>
+      <textarea id="commentInput" placeholder="Add a comment..." class="w-full p-2 border border-gray-300 rounded mb-2"></textarea>
+      <button onclick="addComment()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Post Comment</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer text-center mt-10 p-4 text-sm text-gray-300">
+    <p>&copy; 2025 MoodMate. All rights reserved.</p>
+  </footer>
+</body>
+</html>

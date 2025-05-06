@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoodMate - AI Chatbot</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header class="text-center p-3 bg-dark text-white">
+  <img src="logo.png" alt="MoodMate Logo" class="logo" />
+  <h1>MoodMate AI Chatbot 🤖💬</h1>
+  <nav>
+    <a href="home.html" class="text-white mx-3">🏠 Home</a>
+    <a href="profile.html" class="text-white mx-3">👤 Profile</a>
+  </nav>
+</header>
+
+<!-- Chatbot Container -->
+<div class="chat-container">
+  <div class="bot-avatar">
+    <img src="robot.jpg" alt="Chatbot" />
+  </div>
+
+  <div class="chat-box" id="chat-box">
+    <div class="bot-message">
+      <p>👋 Hey there, friend! I'm your MoodMate Bot 🎉 Ready to turn your mood into movie magic? Just tell me how you're feeling! 🍿</p>
+    </div>
+  </div>
+
+  <!-- Suggested Moods -->
+  <div class="suggested-moods" id="suggested-moods">
+    <p>✨ Feeling something like this?</p>
+    <button>😊 Happy</button>
+    <button>😢 Sad</button>
+    <button>😡 Angry</button>
+    <button>😴 Bored</button>
+  </div>
+
+  <!-- Chat Input -->
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Tell me your vibe... 💭" onkeypress="handleKeyPress(event)" />
+    <button id="sendMessage">🚀 Send</button>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 MoodMate. Bringing moods to movies, one vibe at a time 🎬💖</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js" integrity="sha512-FPlUpimug7gt7Hn7swE8N2pHw/+oQMq/+R/hH/2hZ43VOQ+Kjh25rQzuLyPz7aUWKlRpI7wXbY6+U3oFPGjPOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

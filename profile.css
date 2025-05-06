@@ -1,0 +1,126 @@
+/* Default (desktop/tablet) styles */
+body {
+  font-size: 16px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+/* General */
+.header {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .logo {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .nav-links a {
+    margin-left: 1.5rem;
+    font-size: 1.125rem;
+    color: white;
+    transition: color 0.2s;
+  }
+  
+  .nav-links a:hover {
+    color: #d8b4fe;
+  }
+  /* Global resets and smoother experience */
+body {
+    scroll-behavior: smooth;
+  }
+  
+  /* Profile Picture Glow */
+  img[alt="Profile Picture"] {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  img[alt="Profile Picture"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Buttons */
+  button,
+  .edit-profile {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  button:hover,
+  .edit-profile:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Input Fields */
+  input[type="text"],
+  select {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+  }
+  input[type="text"]:focus,
+  select:focus {
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.4); /* Tailwind purple-500 */
+  }
+  
+  /* Watchlist & Mood Tracker */
+  #watchlist,
+  #moodHistory {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+  
+  /* Card Hover Effect for Friends */
+  div[class*="shadow-lg"].w-40 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  div[class*="shadow-lg"].w-40:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* List Items */
+  ul li {
+    transition: transform 0.2s ease;
+  }
+  ul li:hover {
+    transform: translateX(4px);
+    color: #d1d5db; /* Tailwind gray-300 */
+  }
+  
+  /* Section Headers */
+  h3 {
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
