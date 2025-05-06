@@ -11,37 +11,63 @@ const moodToMovies = {
     "Paddington 🐻",
     "The Secret Life of Walter Mitty 🌍",
     "Mamma Mia! 🎤",
-    "Sing 🎵"
+    "Sing 🎵",
+    "The Intouchables 🤝",
+    "The Grand Budapest Hotel 🏨",
+    "Chef 👨‍🍳",
+    "Amélie 💌",
+    "Finding Nemo 🐠"
   ],
   sad: [
     "The Pursuit of Happyness 😢",
     "Inside Out 🧠",
     "Bridge to Terabithia 🌉",
     "A Silent Voice 🎥",
-    "Up 🎈"
+    "Up 🎈",
+    "My Girl 💔",
+    "The Fault in Our Stars 🌟",
+    "Grave of the Fireflies 🔥",
+    "Hachi: A Dog's Tale 🐶",
+    "Lion 🌍"
   ],
   angry: [
     "John Wick 🔫",
     "Mad Max: Fury Road 🚗🔥",
     "The Dark Knight 🦇",
     "Whiplash 🥁",
-    "Gladiator 🗡️"
+    "Gladiator 🗡️",
+    "Kill Bill 🔪",
+    "300 🛡️",
+    "Django Unchained 🔥",
+    "V for Vendetta 🎭",
+    "The Revenant 🐻"
   ],
   excited: [
     "Spider-Man: Into the Spider-Verse 🕸️",
     "Guardians of the Galaxy 🚀",
     "Scott Pilgrim vs. The World 🎸",
     "Ready Player One 🎮",
-    "Inception 🌀"
+    "Inception 🌀",
+    "The Avengers 🛡️",
+    "Baby Driver 🚗🎵",
+    "Edge of Tomorrow ⏳",
+    "The Maze Runner 🧩",
+    "Free Guy 🎮"
   ],
   bored: [
     "Inception 🌀",
     "Interstellar 🚀",
     "The Matrix 🕶️",
     "Knives Out 🔪",
-    "Everything Everywhere All At Once ✨"
+    "Everything Everywhere All At Once ✨",
+    "Tenet 🔄",
+    "The Prestige 🎩",
+    "Shutter Island 🧠",
+    "Fight Club 👊",
+    "The Truman Show 📺"
   ]
 };
+
 
 sendButton.addEventListener('click', sendMessage);
 
@@ -97,13 +123,14 @@ async function sendMessage() {
 
 // Simple mood detector
 function detectMood(text) {
-  if (text.includes('happy')) return 'happy';
-  if (text.includes('sad')) return 'sad';
-  if (text.includes('angry')) return 'angry';
-  if (text.includes('excited')) return 'excited';
-  if (text.includes('bored')) return 'bored';
+  if (text.includes('happy') || text.includes('enjoyable') || text.includes('joyful') || text.includes('excited')) return 'happy';
+  if (text.includes('sad') || text.includes('depressed') || text.includes('unhappy')) return 'sad';
+  if (text.includes('angry') || text.includes('mad') || text.includes('furious')) return 'angry';
+  if (text.includes('excited') || text.includes('thrilled') || text.includes('pumped')) return 'excited';
+  if (text.includes('bored') || text.includes('confused') || text.includes('lost')) return 'bored';
   return null;
 }
+
 
 // Handle suggested moods
 const moodButtons = document.querySelectorAll('#suggested-moods button');
